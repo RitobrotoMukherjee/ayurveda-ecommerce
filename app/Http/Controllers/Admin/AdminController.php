@@ -15,8 +15,8 @@ class AdminController extends BaseController
     }
     
     public function dashboard() {
-        $fromDate = Carbon::now()->subDay()->startOfWeek()->toDateString(); // or ->format(..)
-        $tillDate = Carbon::now()->subDay()->endOfWeek()->toDateString();
+        $fromDate = Carbon::now()->startOfWeek()->toDateString(); // or ->format(..)
+        $tillDate = Carbon::now()->endOfWeek()->toDateString();
         
         $this->data['orders_week'] = Order::whereBetween( DB::raw('date(created_at)'), [$fromDate, $tillDate] )->get()->count();
         
