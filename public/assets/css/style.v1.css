@@ -1106,3 +1106,9 @@ footer .inner-content p a {
   top: 0;
   width: 100%
 }
+.img-list-view{
+    width: 350px !important;
+    height: 300px;
+    object-fit: cover;
+    
+}

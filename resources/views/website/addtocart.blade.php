@@ -166,6 +166,7 @@
                                               <option value="">-- Choose --</option>
                                               <option value="upi">UPI</option>
                                               <option value="cheque">Cheque</option>
+                                              <option value="COD">Cash On Delivery</option>
                                               <!--<option value="paypal">PayPal</option>-->
                                         </select>
                                     </div>

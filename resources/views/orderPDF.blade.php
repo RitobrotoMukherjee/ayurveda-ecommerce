@@ -22,13 +22,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-6">
-                    <h3>Sold By</h3>
+                    <h4>Sold By</h4>
                     <p>Sree Krishna Ayurvedic Pharmacy</p>
                     <p>ELURU, W.G.Dt., A.P</p>
                     <p><a href="tel:919989512445">+91 9989 512 445</a></p>
                 </div>
                 <div class="col-xs-6">
-                    <h3>Shipping Address</h3>
+                    <h4>Shipping Address</h4>
                     <h6>{{ $customer_name }}</h6>
                     <p>{{ $delivery_address_1 }}</p>
                     <p>{{ $delivery_address_2 }}</p>
@@ -72,6 +72,11 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="row">
+            	<div class="col-xs-9">
+            		<h4>THE BEST HOUSE FOR GENUINE AYURVEDIC MEDICINE</h4>
+            	</div>
             </div>
         </div>
     </body>

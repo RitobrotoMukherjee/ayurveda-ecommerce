@@ -52,9 +52,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://local.ayurvedaecom.com'),
+    'url' => env('APP_URL', 'http://sreekrishnaayurveda.local'),
 
-    'asset_url' => env('ASSET_URL', 'http://local.ayurvedaecom.com/public'),
+    'asset_url' => env('ASSET_URL', 'http://sreekrishnaayurveda.local/public'),
     
     'upi' => 'sreekrishnaayurvedicpharmacy@okaxis',
     

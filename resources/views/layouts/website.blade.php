@@ -23,7 +23,7 @@
     <link href="{{ config('app.asset_url') }}/css/app.css" rel="stylesheet">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/fontawesome.css">
-    <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/style.v1.css">
     <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/owl.css">
     
     
@@ -60,7 +60,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="nav navbar-nav ml-auto">
-
+				<li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('about-us') }}">About Us</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ route('products.list') }}" role="button" aria-haspopup="true" aria-expanded="false" >Products</a>
