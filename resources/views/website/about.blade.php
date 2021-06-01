@@ -33,7 +33,7 @@
                 <div class="col-md-6">
                     <div class="left-content">
                         <h4>Dr. Peddinti Rangacharyulu</h4>
-                        <h4>à°…à°¨à±�à°µà°‚à°¶à°¿à°• à°µà±ˆà°¦à±�à°¯à±�à°²à±�(Hereditary Physician)</h4>
+                        <h4>అనువంశిక వైద్యులు(Hereditary Physician)</h4>
                         <h5>Jananm : in 1865</h5>
                         <h5>Maranam: 1945</h5>
                         <p>He Established Sree Krishna Ayurvedic Pharmacy in 1918 (Great Grandfather of the present Proprietor Sri Peddinti Venugopal) Carried out Manufacturing of Ayurvedic Medicines useful for the Mankind. Some of the Patented Medicines also spreaded all over the World.  For this he was awarded â€œRAJAVAIDYAâ€� by the Local British Administration during 1930â€™s.   Trade Mark Registration done in Britishers time .</p>

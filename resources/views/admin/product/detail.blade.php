@@ -47,10 +47,15 @@
                                     @if(isset($id) && $id > 0 && ! $data['product_detail']->productImages->isEmpty())
                                     <div class="row">
                                         @foreach($data['product_detail']->productImages as $image)
-                                        <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                                            <img id="image-{{ $image->product_id }}" src="{{ config('app.asset_url') }}/assets/images/products/{{ $image->product_id }}/{{ $image->image_path }}" width="100px">
-                                        </div>
+                                        	@if(image->image_size == "thb")
+                                                <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
+                                                    <img id="image-{{ $image->product_id }}" src="{{ config('app.asset_url') }}/assets/images/products/{{ $image->product_id }}/{{ $image->image_path }}" width="100px">
+                                                </div>
+                                            @endif
                                         @endforeach
+                                    	<div class="col-md-6">
+                                    		
+                                    	</div>
                                     </div>
                                     @endif
                                     <div class="row">

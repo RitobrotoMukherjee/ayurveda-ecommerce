@@ -23,7 +23,7 @@
     <link href="{{ config('app.asset_url') }}/css/app.css" rel="stylesheet">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/fontawesome.css">
-    <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/style.v1.css">
+    <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/style.v1.0.1.css">
     <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/owl.css">
     
     

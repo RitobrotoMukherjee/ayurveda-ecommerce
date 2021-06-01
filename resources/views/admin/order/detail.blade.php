@@ -11,14 +11,18 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Order Detail</h1>
-          </div>
-            <div class="col-sm-5 offset-sm-1">
-                <a class="btn btn-success" href='{{ route('admin.download.pdf', [$id]) }}'>Download PDF</a>
+        	<div class="row mb-2">
+              <div class="col-sm-6">
+               	 <h1>Order Detail</h1>
+              </div>
+          
+              	@if(isset($data['order_detail']->order_status_id) && ($data['order_detail']->order_status_id == 2))
+                    <div class="col-sm-5 offset-sm-1">
+                        <a class="btn btn-success" href='{{ route('admin.download.pdf', [$id]) }}'>Download Invoice</a>
+                    </div>
+                @endif
+                
             </div>
-        </div>
       </div><!-- /.container-fluid -->
     </section>
     <section class="content">
