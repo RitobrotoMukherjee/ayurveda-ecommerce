@@ -72,7 +72,14 @@
                 "responsive": true,
                 "ordering": false,
                 "data": <?= json_encode($configure) ?>
-            }).buttons().container().appendTo('#product-list_wrapper .col-md-6:eq(0)');;
+            }).buttons().container().appendTo('#product-list_wrapper .col-md-6:eq(0)');
+            
+            @if(request()->session()->get('error'))
+                toastr.error("<?=request()->session()->get('error')?>");
+            @endif
+            @if(request()->session()->get('message'))
+                toastr.success("<?=request()->session()->get('message')?>");
+            @endif
         });
     </script>
 @endsection

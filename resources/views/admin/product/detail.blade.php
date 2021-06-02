@@ -47,15 +47,13 @@
                                     @if(isset($id) && $id > 0 && ! $data['product_detail']->productImages->isEmpty())
                                     <div class="row">
                                         @foreach($data['product_detail']->productImages as $image)
-                                        	@if(image->image_size == "thb")
+                                        	@if($image->image_size == "thb")
                                                 <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
                                                     <img id="image-{{ $image->product_id }}" src="{{ config('app.asset_url') }}/assets/images/products/{{ $image->product_id }}/{{ $image->image_path }}" width="100px">
                                                 </div>
                                             @endif
                                         @endforeach
-                                    	<div class="col-md-6">
-                                    		
-                                    	</div>
+                                    	
                                     </div>
                                     @endif
                                     <div class="row">
@@ -65,6 +63,14 @@
                                                 <input type="file" class="form-control" id="product-image" name="product[image]"  required>
                                             </div>
                                         </div>
+                                        @if(isset($id) && $id > 0 && ! $data['product_detail']->productImages->isEmpty())
+                                        	<div class="col-md-6">
+                                    			<div class="form-group">
+                                    				<label for="image-upload">--</label>
+                                                    <button id="image-upload" type="submit" class="btn btn-warning btn-block" name="update_image" value="{{$id}}">Update Image</button>
+                                                </div>
+                                    		</div>
+                                        @endif
                                     </div>
 
                                     <div class="row">

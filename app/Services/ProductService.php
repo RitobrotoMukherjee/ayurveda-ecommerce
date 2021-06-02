@@ -115,13 +115,12 @@ class ProductService implements ProductServiceInterface{
         $obj['med']['image_path'] = 'med_'.$unique_id.'.'.$extension;
         $obj['med']['image_size'] = 'med';
         
-        $img->orientate()->resize(370, 270, function ($constraint) {
+        $img->orientate()->resize(450, 450, function ($constraint) {
 
             $constraint->aspectRatio();
 
         })->save($destinationPath.'/'.$prod_id.'/'.$obj['med']['image_path']);
-        $return = $this->saveImageInDB($prod_id, $obj);
-        return $return;
+        return $this->saveImageInDB($prod_id, $obj);
     }
     
     private function saveImageInDB($pid,$input = array()){

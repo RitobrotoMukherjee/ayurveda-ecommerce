@@ -34,30 +34,37 @@ class ProductController extends BaseController
         $this->data['product_categories'] = $this->ps->getProductCategories();
         if(isset($id) && $id > 0){
             $this->data['product_detail'] = $this->ps->getDetailById($id);
-//            dd($this->data['product_detail']->toArray());
         }
-        
         return view('admin.product.detail', ['data' => $this->data]);
     }
     
     public function upsertProduct(Request $request){
         $inputs = $request->input('product');
+        $imageUp = $request->input('update_image');
         $inputs['slug'] = Str::slug($inputs['name']);
         if($request->hasFile('product.image')){ 
             $image = $request->file('product.image');
             $inputs['image'] = $image;
         }
-//        dd($inputs);
         $validator = $this->productUpsertValidate($inputs, $inputs['id']);
-        
+        if(isset($imageUp)) {
+            $validator = $this->productImageEdit($inputs);
+        }
         if ($validator->passes()) {
-            $product = $this->ps->upsertProduct($inputs);
-            if(isset($image)){
-                $img_response = $this->ps->uploadImages($image, $product->id);
-                return redirect()->route('product.list' )->with('message', 'Product Saved '.$product->name.
-                        ' with '.count($img_response).' images');
+            if(isset($image,$imageUp)){
+                $img_response = $this->ps->uploadImages($image, $imageUp);
+                return redirect()->route('product.list' )->with('message', $inputs['name'] . ' image updated '
+                    .' with '.count($img_response).' image sizes');
             }
-            return redirect()->route('product.list' )->with('error', 'Product Saved '.$product->name.' without images');
+            if(!isset($imageUp)){
+                $product = $this->ps->upsertProduct($inputs);
+                if(isset($image)){
+                    $img_response = $this->ps->uploadImages($image, $product->id);
+                    return redirect()->route('product.list' )->with('message', 'Product Saved '.$product->name.
+                            ' with '.count($img_response).' image sizes');
+                }
+                return redirect()->route('product.list' )->with('error', 'Product Saved '.$product->name.' without images');
+            }
         }
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
@@ -116,7 +123,6 @@ class ProductController extends BaseController
         ];
         return Validator::make($inputs, $validator, $messages);
     }
-    
     private function productCatUpsertValidate($inputs) {
         $validator = ['name' => 'required|max:50|unique:product_categories,name'];
         $messages = [
@@ -124,5 +130,15 @@ class ProductController extends BaseController
             'name.max' => 'maximum 50 charactes are allowed',
         ];
         return Validator::make($inputs, $validator, $messages);
+    }
+    
+    
+    private function productImageEdit($input) {
+        $validator = ['image' => 'required|max:2048'];
+        $messages = [
+            'image.required' => 'Image is required to save a product into the inventory',
+            'image.max' => 'Maximum allowed filesize 2 MB'
+        ];
+        return Validator::make($input, $validator, $messages);
     }
 }
