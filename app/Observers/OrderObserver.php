@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\Order;
 use App\Mail\OrderInitiatedEmail;
+use App\Mail\OrderAdminInform;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 
@@ -21,6 +22,7 @@ class OrderObserver
         $order->save();
         Log::stack(['single'])->info('Sending email order initiation mail to '. $order->customer_email);
         Mail::to($order->customer_email)->queue(new OrderInitiatedEmail($order));
+        Mail::to("sreekrishnaayurvedicpharmacy@gmail.com")->queue(new OrderAdminInform($order));
     }
     /**
      * Handle the Order "updating" event.
