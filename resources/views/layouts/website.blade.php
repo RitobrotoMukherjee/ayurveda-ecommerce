@@ -20,10 +20,10 @@
 
     <title>Sree Krishna Ayurvedic</title>
 
-    <link href="{{ config('app.asset_url') }}/css/app.css" rel="stylesheet">
+    <link href="{{ config('app.asset_url') }}/css/app-v1.0.1.css" rel="stylesheet">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/fontawesome.css">
-    <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/style.v1.0.1.css">
+    <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/style.v1.0.2.css">
     <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/owl.css">
     
     
@@ -41,24 +41,29 @@
         </div>
     </div>  
     <!-- ***** Preloader End ***** -->
+    
+    @if($data['page'] != "product" && $data['page'] != "auth-password")
+        <div class="page-heading about-heading header-text" style="background-image: url(public/assets/images/Home_Page_Banner.jpg);">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="text-content">
+                    <!--<h2>about us</h2>-->
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    @endif
 
     <!-- Header -->
     <header class="" id="myHeader" >
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <div class="navbar-header navbar-left">
-                @if(!isset($data['page'])) 
-                    @guest('customer')
-                        <a class="navbar-brand" href="{{ route('home') }}"><h2>Sree Krishna <em>Ayurvedic Pharmacy</em></h2></a>
-                    @else
-                        <a class="navbar-brand" href="{{ route('customer.dashboard') }}"><h2>Sree Krishna <em> Pharmacy</em></h2></a>
-                    @endguest
-                @endif
-            </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="nav navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('about-us') }}">About Us</a></li>
@@ -130,7 +135,7 @@
         </div>
       </div>
     </div>
-    <a href="https://api.whatsapp.com/send?phone=919966660399&text=Hello." class="wa-button" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=919989512445&text=Hello, SKAP" class="wa-button" target="_blank">
         <i class="fa fa-whatsapp my-wa-button"></i>
     </a>
     

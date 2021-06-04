@@ -2,20 +2,6 @@
 @section('body')
 
 
-    <!-- Page Content -->
-    <div class="page-heading contact-heading header-text" style="background-image: url(public/assets/images/contact_banner.jpg);">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="text-content">
-              <h2>Contact Us</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
     <div class="find-us">
       <div class="container">
         <div class="row">

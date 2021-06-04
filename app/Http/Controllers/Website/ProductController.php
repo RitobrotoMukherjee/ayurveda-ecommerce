@@ -14,6 +14,8 @@ class ProductController extends BaseController
         Parent::__construct();
         
         $this->ps = $prodserv;
+        
+        $this->data['page'] = 'product';
     }
     
     public function getList(Request $request){

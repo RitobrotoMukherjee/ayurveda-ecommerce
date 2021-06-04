@@ -2,19 +2,6 @@
 @section('body')
 
 
-    <!-- Page Content -->
-    <div class="page-heading page-heading-auth contact-heading header-text" style="background-image: url(public/assets/images/contact_banner.jpg);">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="text-content">
-              <h2>Add To Cart</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
     <div class="products call-to-action">
         <div class="container">

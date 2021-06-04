@@ -1,41 +1,9 @@
 @extends('layouts.website')
 @section('body')
-<style>
-    .page-heading:before{background-color: transparent !important;}
-</style>
-
-    <!-- Page Content -->
-    <!-- Banner Starts Here, it's carousal -->
-<!--    <div class="banner header-text">
-      <div class="owl-banner owl-carousel">
-        <div class="banner-item-01">
-          <div class="text-content">
-            <h4>Find your ayurvedic medicine!</h4>
-          </div>
-        </div>
-        <div class="banner-item-02">
-          <div class="text-content">
-            <h4>Natural Honey</h4>
-          </div>
-        </div>
-      </div>
-    </div>-->
-    <!-- Banner Ends Here -->
-    
     <!-- for just image view -->
     <!--<div class="banner header-text" style='padding-top: 80px;'>-->
         <!--<div class="page-heading about-heading header-text" style="padding: 350px 0px 130px 0px !important;background-image: url(public/assets/images/Home_Page_Banner.jpg);">-->
-        <div class="page-heading about-heading header-text" style="background-image: url(public/assets/images/Home_Page_Banner.jpg);">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="text-content">
-                    <!--<h2>about us</h2>-->
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
+        
     <!--</div>-->
     
     <!-- static image banner ends -->
@@ -53,7 +21,7 @@
             @endif
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>We Are Sree Krishna Ayurveda</h2>
+              <h2>Brief About Us</h2>
             </div>
           </div>
           <div class="col-md-12">

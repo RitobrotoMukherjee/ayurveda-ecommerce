@@ -24,11 +24,18 @@ class PdfController extends BaseController
             'address_last' => $order->delivery_city.', '.$order->delivery_state,
             'pin' => $order->delivery_pincode,
             'description' => $order->orderDetail,
-            'subtotal' => $order->order_final_amount
+            'subtotal' => $order->order_final_amount,
+            'logo' => $this->getBase64Image(),
         ];
         
         $pdf = PDF::loadView('orderPDF', $data);
     
         return $pdf->download($order->invoice_number.'.pdf');
+    }
+    
+    private function getBase64Image(){
+        $path = config('app.asset_url').'/assets/images/SKAP-logo.jpg';
+        $data = file_get_contents($path);
+        return 'data:image/jpg;base64,' . base64_encode($data);
     }
 }

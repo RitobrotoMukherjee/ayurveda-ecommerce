@@ -10009,7 +10009,7 @@ Custom CSS
 
 **/
 .auth-content{
-    margin-top: 25px;
+    margin-top: 85px;
 }
 
 .page-heading-auth{
@@ -10134,4 +10134,19 @@ Custom CSS
 
 .my-wa-button{
     margin-top:16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+.img-list-view{
+    width: 350px !important;
+    height: 460px;
+    object-fit: cover;
+}
+.page-heading:before{
+    background-color: transparent !important;
 }

@@ -32,6 +32,7 @@ class CustomerResetPasswordController extends BaseController
     
     public function __construct() {
         Parent::__construct();
+        $this->data['page'] = "auth-password";
     }
     
     /**

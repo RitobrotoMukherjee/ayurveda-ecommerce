@@ -1,7 +1,7 @@
 @extends('layouts.website')
 
 @section('body')
-    <div class="page-heading page-heading-auth contact-heading header-text" style="background-image: url(public/assets/images/contact_banner.jpg);">
+    <div class="page-heading page-heading-auth contact-heading header-text" style="background-image: url(public/assets/images/contact_banner.jpg);background-color: rgba(0, 0, 0, 0.7) !important;">
       <div class="container">
         <div class="row">
           <div class="col-md-12">

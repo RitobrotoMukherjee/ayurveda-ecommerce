@@ -21,19 +21,28 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-6">
-                    <h4>Sold By</h4>
-                    <p>Sree Krishna Ayurvedic Pharmacy</p>
-                    <p>ELURU, W.G.Dt., A.P</p>
-                    <p><a href="tel:919989512445">+91 9989 512 445</a></p>
+                <div class="col-xs-2">
+                    <img src="{{ $logo }}" width="100" height="100"/>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-9 text-left">
+                    <h5>THE BEST HOUSE FOR GENUINE AYURVEDIC MEDICINE</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <h4>Sold By</h4>
+                    <h6>Sree Krishna Ayurvedic Pharmacy</h6>
+                    <h6>ELURU, W.G.Dt., A.P</h6>
+                    <h5><a href="tel:919989512445">+91 9989 512 445</a></h5>
+                </div>
+                <div class="col-xs-1"></div>
+                <div class="col-xs-7">
                     <h4>Shipping Address</h4>
                     <h6>{{ $customer_name }}</h6>
-                    <p>{{ $delivery_address_1 }}</p>
-                    <p>{{ $delivery_address_2 }}</p>
-                    <p>{{ $address_last }}</p>
-                    <p>{{ $pin }}</p>
+                    <h6>{{ $delivery_address_1 }}</h6>
+                    <h6>{{ $delivery_address_2 }}</h6>
+                    <h6>{{ $address_last }}</h6>
+                    <h6>{{ $pin }}</h6>
                 </div>
             </div>
             <div class="row">
@@ -66,17 +75,16 @@
                                 </tr>
                             @endforeach
                             <tr class="d-flex">
+                                <td class="col-6">Shipping Charges</td>
+                                <td class="col-6">--</td>
+                            </tr>
+                            <tr class="d-flex">
                                 <td class="col-6">Sub Total</td>
-                                <td >{{ $subtotal }}</td>
+                                <td class="col-6">{{ $subtotal }}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="row">
-            	<div class="col-xs-9">
-            		<h4>THE BEST HOUSE FOR GENUINE AYURVEDIC MEDICINE</h4>
-            	</div>
             </div>
         </div>
     </body>

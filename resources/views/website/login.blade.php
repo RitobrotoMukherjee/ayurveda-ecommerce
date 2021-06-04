@@ -1,17 +1,6 @@
 @extends('layouts.website')
 
 @section('body')
-    <div class="page-heading page-heading-auth contact-heading header-text" style="background-image: url(public/assets/images/contact_banner.jpg);">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="text-content">
-              <h2>Customer Login</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="auth-content">
         <div class="container">
             <div class="row justify-content-center">

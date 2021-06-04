@@ -1100,15 +1100,3 @@ footer .inner-content p a {
 		margin-bottom: 20px;
 	}
 }
-/* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%
-}
-.img-list-view{
-    width: 350px !important;
-    height: 460px;
-    object-fit: cover;
-    
-}

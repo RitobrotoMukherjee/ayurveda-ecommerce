@@ -8,6 +8,7 @@ class BaseController extends Controller
     protected $data; // all data to be passed to view
     public function __construct(){
         $this->data['cart_count'] = 0;
+        $this->data['page'] = "";
         $this->data['device'] = 'pc';
         if($this->isMobileDevice()){
             $this->data['device'] = 'mobile';

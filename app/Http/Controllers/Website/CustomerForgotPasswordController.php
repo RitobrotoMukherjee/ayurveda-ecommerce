@@ -12,6 +12,7 @@ class CustomerForgotPasswordController extends BaseController
     
     public function __construct() {
         parent::__construct();
+        $this->data['page'] = "auth-password";
     }
     
     

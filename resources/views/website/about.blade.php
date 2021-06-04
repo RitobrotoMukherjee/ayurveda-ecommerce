@@ -2,19 +2,6 @@
 @section('body')
 
 
-    <div class="page-heading about-heading header-text" style="background-image: url(public/assets/images/contact_banner.jpg);">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="text-content">
-              <h2>about us</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
     <div class="best-features about-features">
       <div class="container">
         <div class="row">
@@ -106,6 +93,14 @@
                         <div class="icon">
                             <img src="{{ config('app.asset_url') }}/assets/images/skap-team/P-Varadacharyulu.png" width="250" height="350" alt="">
                             <h4>P Varadacharyulu M.Sc (Chemistry)</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 offset-md-4">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="{{ config('app.asset_url') }}/assets/images/SKAP-ISO-CERTIFICATE.jpg" width="250" height="350" alt="">
+                            <h4>ISO Certificate</h4>
                         </div>
                     </div>
                 </div>
