@@ -34,7 +34,7 @@ class PdfController extends BaseController
         
         $pdf = PDF::loadView('orderPDF', $data);
     
-        return $pdf->stream($order->invoice_number.'.pdf', ["Attachment" => false]);
+        return $pdf->download($order->invoice_number.'.pdf');
     }
     
     private function getBase64Image(){
