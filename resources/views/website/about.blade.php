@@ -54,7 +54,7 @@
                         <h4>AYURVEDIC OFFICERS ASSOCIATION, Govt. A.P.</h4>
                         <h5>Jananm : in 1935</h5>
                         <h5>Maranam: 2019</h5>
-                        <p>He Completed B.A.M.S.  and joined in Govt. Service at Ayurvedic Hospital, Chirala.  Continuously guiding his son and present proprietor of Sree Krishna Ayurvedic Pharmacy Sri Peddinti Venugopal in preparation of Medicines for various diseases also made his own presense for attending serious cases at eluru whenever required.  He elected as Vice President for State Municipal Ayurvedic Officers Association and served for many years for the welfare of the Ayurvedic Doctors spreaded all over in India.</p>
+                        <p>He Completed B.A.M.S.  and joined in Govt. Service at Ayurvedic Hospital, Chirala.  Continuously guiding his son and present proprietor of Sree Krishna Ayurvedic Pharmacy Sri Peddinti Venugopal in preparation of Medicines for various diseases also made his own presense for attending serious cases at eluru whenever required.  He elected as Vice President for State Municipal AYURVEDIC MEDICAL OFFICERS ASSOCIATION and served for many years for the welfare of the Ayurvedic Doctors spreaded all over in India.</p>
                     </div>
                 </div>
             </div>
