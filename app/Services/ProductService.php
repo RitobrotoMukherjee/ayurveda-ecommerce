@@ -102,6 +102,12 @@ class ProductService implements ProductServiceInterface{
         
         $img = Image::make($image->path());
         
+        
+        // saveing medium size
+        $obj['med']['image_path'] = 'med_'.$unique_id.'.'.$extension;
+        $obj['med']['image_size'] = 'med';
+        
+        $img->save($destinationPath.'/'.$prod_id.'/'.$obj['med']['image_path']);
         // saveing thumbnail size
         $obj['thb']['image_path'] = 'thb_'.$unique_id.'.'.$extension;
         $obj['thb']['image_size'] = 'thb';
@@ -111,15 +117,7 @@ class ProductService implements ProductServiceInterface{
 
         })->save($destinationPath.'/'.$prod_id.'/'.$obj['thb']['image_path']);
         
-        // saveing medium size
-        $obj['med']['image_path'] = 'med_'.$unique_id.'.'.$extension;
-        $obj['med']['image_size'] = 'med';
         
-        $img->orientate()->resize(450, 450, function ($constraint) {
-
-            $constraint->aspectRatio();
-
-        })->save($destinationPath.'/'.$prod_id.'/'.$obj['med']['image_path']);
         return $this->saveImageInDB($prod_id, $obj);
     }
     

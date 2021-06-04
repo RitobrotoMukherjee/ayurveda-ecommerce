@@ -25,12 +25,16 @@ class PdfController extends BaseController
             'pin' => $order->delivery_pincode,
             'description' => $order->orderDetail,
             'subtotal' => $order->order_final_amount,
+            'tax' => $order->tax_amount,
+            'shipping' => $order->shipping_charge,
+            'order_total' => $order->order_total_amount,
+            'order_discount' => $order->order_discount,
             'logo' => $this->getBase64Image(),
         ];
         
         $pdf = PDF::loadView('orderPDF', $data);
     
-        return $pdf->download($order->invoice_number.'.pdf');
+        return $pdf->stream($order->invoice_number.'.pdf', ["Attachment" => false]);
     }
     
     private function getBase64Image(){

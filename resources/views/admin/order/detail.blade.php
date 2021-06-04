@@ -39,6 +39,7 @@
                             @csrf
 
                             <input type="hidden" class="form-control" id="order-id" name="order[id]" value="{{ $data['order_detail']->id ?? old('order.id') }}">
+                            <input type="hidden" class="form-control" id="order-amount" name="order[order_final_amount]" value="{{ $data['order_detail']->order_final_amount ?? old('order.order_final_amount') }}">
 
                             <div class="card-body">
                                 
@@ -60,14 +61,30 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 offset-md-3 text-center">
-                                        @if($id == '')
-                                        <button type="submit" class="btn btn-warning btn-block">Save</button>
-                                        @else
-                                        <button type="submit" class="btn btn-warning btn-block">Update</button>
-                                        @endif
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="tax_percent">GST in percentage</label>
+                                            <input type="text" class="form-control" id="tax_percent" placeholder="tax percent" name="order[tax_amount]" value="{{ $data['order_detail']->tax_amount ?? old('order.tax_amount') }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="shipping_charges">Shipping Charges</label>
+                                            <input type="text" class="form-control" id="shipping_charges" placeholder="Shipping Charges" name="order[shipping_charge]" value="{{ $data['order_detail']->shipping_charge ?? old('order.shipping_charge') }}" required>
+                                        </div>
                                     </div>
                                 </div>
+                                @if($data['order_detail']->order_status_id != 2)
+                                    <div class="row">
+                                        <div class="col-md-6 offset-md-3 text-center">
+                                            @if($id == '')
+                                            <button type="submit" class="btn btn-warning btn-block">Save</button>
+                                            @else
+                                            <button type="submit" class="btn btn-warning btn-block">Update</button>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </form>
                     </div>
@@ -230,6 +247,15 @@
                     },
                     "order[txn_id]":{
                         required:true,
+                    },
+                    "order[tax_amount]":{
+                        required:true,
+                        number: true,
+                        max: 100
+                    },
+                    "order[shipping_charge]":{
+                        required:true,
+                        number: true
                     }
                 }
             });

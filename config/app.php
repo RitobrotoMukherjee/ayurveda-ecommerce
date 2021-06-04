@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Sree Krishna Ayurveda'),
+    'name' => env('APP_NAME', 'Sree Krishna Ayurvedic Pharmacy'),
 
     /*
     |--------------------------------------------------------------------------

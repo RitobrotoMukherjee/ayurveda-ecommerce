@@ -10143,8 +10143,8 @@ Custom CSS
   width: 100%
 }
 .img-list-view{
-    width: 350px !important;
-    height: 460px;
+    width: 370px !important;
+    height: 255px;
     object-fit: cover;
 }
 .page-heading:before{

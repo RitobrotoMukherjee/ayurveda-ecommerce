@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Sree Krishna Ayurvedic</title>
+        <title>Sree Krishna Ayurvedic Pharmacy</title>
 
         <style>
            /*!
@@ -24,29 +24,23 @@
                 <div class="col-xs-2">
                     <img src="{{ $logo }}" width="100" height="100"/>
                 </div>
-                <div class="col-xs-9 text-left">
-                    <h5>THE BEST HOUSE FOR GENUINE AYURVEDIC MEDICINE</h5>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-xs-4">
                     <h4>Sold By</h4>
                     <h6>Sree Krishna Ayurvedic Pharmacy</h6>
                     <h6>ELURU, W.G.Dt., A.P</h6>
-                    <h5><a href="tel:919989512445">+91 9989 512 445</a></h5>
+                    <h6><a href="tel:919989512445">+91 9989 512 445</a></h6>
                 </div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-7">
+                <div class="col-xs-5">
                     <h4>Shipping Address</h4>
                     <h6>{{ $customer_name }}</h6>
                     <h6>{{ $delivery_address_1 }}</h6>
                     <h6>{{ $delivery_address_2 }}</h6>
-                    <h6>{{ $address_last }}</h6>
-                    <h6>{{ $pin }}</h6>
+                    <h6>{{ $address_last }}, {{ $pin }}</h6>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6 offset-xs-3">
+                    <h4>Invoice</h4>
                     <h6>GSTIN - {{ config('app.gst_number') }}</h6>
                     <h6>Invoice Date - {{ $invoice_date }}</h6>
                     <h6>Invoice Number - {{ $invoice_number }}</h6>
@@ -61,29 +55,40 @@
                                 <th >Quantity</th>
                                 <th >Price</th>
                                 <th >Discount</th>
-                                <th >Final Price</th>
+                                <th >End Price</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($description as $odrDtl)
                                 <tr class="d-flex">
                                     <td class="col-6"><a href="{{ route('products.detail', [$odrDtl->product->slug]) }}">{{ $odrDtl->product->name }}</a></td>
-                                    <td>{{ $odrDtl->quantity }}</td>
-                                    <td>{{ $odrDtl->price }}</td>
-                                    <td>{{ $odrDtl->discount }}</td>
-                                    <td>{{ $odrDtl->final_price }}</td>
+                                    <td style="text-align: center;">{{ $odrDtl->quantity }}</td>
+                                    <td style="text-align: center;">{{ $odrDtl->price }}</td>
+                                    <td style="text-align: center;">{{ $odrDtl->discount }}</td>
+                                    <td style="text-align: center;">{{ $odrDtl->final_price }}</td>
                                 </tr>
                             @endforeach
-                            <tr class="d-flex">
-                                <td class="col-6">Shipping Charges</td>
-                                <td class="col-6">--</td>
-                            </tr>
-                            <tr class="d-flex">
-                                <td class="col-6">Sub Total</td>
-                                <td class="col-6">{{ $subtotal }}</td>
-                            </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr class="d-flex">
+                            <th style="width: 50%;text-align: center;" >GST</th>
+                            <th style="width: 50%;text-align: right;">{{ $tax }}%</th>
+                        </tr>
+                        <tr class="d-flex">
+                            <th style="width: 50%;text-align: center;" >Shipping Charges</th>
+                            <th style="width: 50%;text-align: right;">{{ $shipping }}</th>
+                        </tr>
+                        <tr class="d-flex">
+                            <th style="width: 50%;text-align: center;">Sub Total</th>
+                            <th style="width: 50%; text-align: right;">{{ $subtotal }}</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-xs-9 text-left">
+                    <h5>THE BEST HOUSE FOR GENUINE AYURVEDIC MEDICINE</h5>
                 </div>
             </div>
         </div>
