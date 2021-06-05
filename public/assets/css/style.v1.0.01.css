@@ -189,7 +189,7 @@ header {
 	position: absolute;
 	z-index: 99999;
 	width: 100%;
-	height: 80px;
+	height: 60px;
         background-color: rgba(5, 5, 0, 0.5);
 	/*background-color: #232323;*/
 	-webkit-transition: all 0.3s ease-in-out 0s;
@@ -198,7 +198,7 @@ header {
     transition: all 0.3s ease-in-out 0s;
 }
 header .navbar {
-	padding: 17px 0px;
+	padding: 7px 0px;
 }
 .background-header .navbar {
 	padding: 17px 0px;

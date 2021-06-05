@@ -20,9 +20,9 @@
                 <div class="col-md-4 col-xs-12">
                     <div class="text-center">
                         @if(isset($data['product']->productImages[1]))
-                            <img src="{{ config('app.asset_url') }}/assets/images/products/{{ $data['product']->id }}/{{ $data['product']->productImages[1]->image_path }}" alt="" class="img-fluid wc-image">
+                            <img src="{{ config('app.asset_url') }}/assets/images/products/{{ $data['product']->id }}/{{ $data['product']->productImages[1]->image_path }}" alt="" class="img-thumbnail img-list-view">
                         @else
-                            <img title="No Image Found" src="{{ config('app.asset_url') }}/assets/images/product-1-370x270.jpg " alt="no image" class="img-fluid wc-image"> 
+                            <img title="No Image Found" src="{{ config('app.asset_url') }}/assets/images/product-1-370x270.jpg " alt="no image" class="img-thumbnail img-list-view"> 
                         @endif
                         @if($data['product']->available == 0)
                             <div class="sold-overlay">

@@ -21,6 +21,7 @@ class Order extends Model
         'delivery_district',
         'delivery_state',
         'delivery_pincode',
+        'total_quantity',
         'order_total_amount',
         'order_discount',
         'order_final_amount',

@@ -111,15 +111,19 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <dt>Amount</dt>
                                         <dd>{{ $data['order_detail']->order_total_amount }}</dd>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <dt>Discount</dt>
                                         <dd>{{ $data['order_detail']->order_discount }}</dd>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
+                                        <dt>Total Qty</dt>
+                                        <dd>{{ $data['order_detail']->total_quantity }}</dd>
+                                    </div>
+                                    <div class="col-md-3">
                                         <dt>Final Amount</dt>
                                         <dd>{{ $data['order_detail']->order_final_amount }}</dd>
                                     </div>
