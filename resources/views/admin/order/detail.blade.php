@@ -44,7 +44,7 @@
                             <div class="card-body">
                                 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label for="orderStatus">Select Status</label>
                                         <select class="form-control" id="orderStatus" name="order[order_status_id]" required>
                                             <option value=''>Please select from list</option>
@@ -53,21 +53,13 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="transaction_id">Transaction Id using {{ strtoupper($data['order_detail']->payment_type) }}</label>
                                             <input type="text" class="form-control" id="transaction_id" placeholder="Transaction ID" name="order[txn_id]" value="{{ $data['order_detail']->txn_id ?? old('order.txn_id') }}" required>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="tax_percent">GST in percentage</label>
-                                            <input type="text" class="form-control" id="tax_percent" placeholder="tax percent" name="order[tax_amount]" value="{{ $data['order_detail']->tax_amount ?? old('order.tax_amount') }}" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shipping_charges">Shipping Charges</label>
                                             <input type="text" class="form-control" id="shipping_charges" placeholder="Shipping Charges" name="order[shipping_charge]" value="{{ $data['order_detail']->shipping_charge ?? old('order.shipping_charge') }}" required>
@@ -111,20 +103,24 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
+                                        <dt>Qty</dt>
+                                        <dd>{{ $data['order_detail']->total_quantity }}</dd>
+                                    </div>
+                                    <div class="col-md-4">
                                         <dt>Amount</dt>
                                         <dd>{{ $data['order_detail']->order_total_amount }}</dd>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <dt>Discount</dt>
                                         <dd>{{ $data['order_detail']->order_discount }}</dd>
                                     </div>
-                                    <div class="col-md-3">
-                                        <dt>Total Qty</dt>
-                                        <dd>{{ $data['order_detail']->total_quantity }}</dd>
+                                    <div class="col-md-4">
+                                        <dt>Tax Amount</dt>
+                                        <dd>{{ $data['order_detail']->tax_amount }}</dd>
                                     </div>
-                                    <div class="col-md-3">
-                                        <dt>Final Amount</dt>
+                                    <div class="col-md-4">
+                                        <dt>Final Amount(inc shipping)</dt>
                                         <dd>{{ $data['order_detail']->order_final_amount }}</dd>
                                     </div>
                                 </div>
@@ -203,6 +199,7 @@
                                         <th>Quantity</th>
                                         <th>Price</th>
                                         <th>Discount</th>
+                                        <th>GST</th>
                                         <th>Final Price</th>
                                     </tr>
                                 </thead>
@@ -213,6 +210,7 @@
                                             <td>{{ $order->quantity }}</td>
                                             <td>{{ $order->price }}</td>
                                             <td>{{ $order->discount }}</td>
+                                            <td>{{ $order->gst_percentage }}%</td>
                                             <td><span class="tag tag-success">{{ $order->final_price }}</span></td>
                                         </tr>
                                     @endforeach
@@ -251,11 +249,6 @@
                     },
                     "order[txn_id]":{
                         required:true,
-                    },
-                    "order[tax_amount]":{
-                        required:true,
-                        number: true,
-                        max: 100
                     },
                     "order[shipping_charge]":{
                         required:true,

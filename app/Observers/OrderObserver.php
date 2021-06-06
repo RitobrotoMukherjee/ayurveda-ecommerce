@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Log;
 
 class OrderObserver
 {
+    protected $adminEmail;
+    
+    public function __construct() {
+        $this->adminEmail = "ritobrotomukherjee1991@gmail.com";
+    }
     /**
      * Handle the Order "created" event.
      *
@@ -20,9 +25,10 @@ class OrderObserver
     {
         $order->invoice_number = 'SKAP-'.uniqid().'-'.$order->id;
         $order->save();
-        Log::stack(['single'])->info('Sending email order initiation mail to '. $order->customer_email);
+        Log::stack(['single'])->info('Sending email order initiation mail to '. $order->customer_email.', '.$this->adminEmail);
         Mail::to($order->customer_email)->queue(new OrderInitiatedEmail($order));
-        Mail::to("sreekrishnaayurvedicpharmacy@gmail.com")->queue(new OrderAdminInform($order));
+        Mail::to($this->adminEmail)->queue(new OrderAdminInform($order));
+//        Mail::to("sreekrishnaayurvedicpharmacy@gmail.com")->queue(new OrderAdminInform($order));
     }
     /**
      * Handle the Order "updating" event.

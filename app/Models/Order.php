@@ -24,6 +24,7 @@ class Order extends Model
         'total_quantity',
         'order_total_amount',
         'order_discount',
+        'tax_amount',
         'order_final_amount',
         'payment_type',
         'payment_status',

@@ -29,11 +29,12 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th width="50%">Product</th>
+                                <th width="40%">Product</th>
                                 <th width="10%">Price(each)</th>
-                                <th width="8%">Discount(each)</th>
-                                <th width="8%">Quantity</th>
-                                <th width="22%">Sub Total</th>
+                                <th width="10%">Discount(each)</th>
+                                <th width="10%">GST</th>
+                                <th width="10%">Quantity</th>
+                                <th width="10%">Sub Total</th>
                                 <th width="10%"></th>
                             </tr>
                         </thead>
@@ -41,16 +42,19 @@
                             @php $total=0 @endphp
                             @if(session('cart'))
                                 @foreach(session('cart') as $id => $product)
-                                    @php 
-                                        $subtotal= ($product['price'] - $product['discount']) * $product['quantity'] ;
+                                    @php
+                                        $prd_price = ($product['price'] - $product['discount']) * $product['quantity'];
+                                        $tax = ($prd_price * $product['gst_percentage'])/100;
+                                        $subtotal = $prd_price + $tax;
                                         $total += $subtotal;
                                     @endphp
                                     <tr>
                                         <td>{{ $product['name'] }}</td>
                                         <td>&#8377;{{ $product['price'] }}</td>
                                         <td>&#8377;{{ $product['discount'] }}</td>
+                                        <td>{{ $product['gst_percentage'] }}%</td>
                                         <td>{{ $product['quantity'] }}</td>
-                                        <td>&#8377;{{ ($product['price'] - $product['discount']) * $product['quantity'] }}</td>
+                                        <td>&#8377;{{ $subtotal }}</td>
                                         <td>
                                             <a href="{{ route('cart.remove', [$id]) }}" class="btn btn-danger btn-sm">X</a>
                                         </td>

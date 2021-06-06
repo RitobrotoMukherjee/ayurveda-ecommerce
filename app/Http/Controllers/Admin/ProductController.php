@@ -99,7 +99,7 @@ class ProductController extends BaseController
     
     private function productUpsertValidate($inputs, $id=""){
         $validator = ['product_category_id' => 'required|integer','available' => 'required|integer','featured' => 'required|integer',
-            'price' => 'required|numeric','discount' => 'required|numeric','description' => 'required|max:150',
+            'price' => 'required|numeric','discount' => 'required|numeric','gst_percentage' => 'required|integer','description' => 'required|max:150',
             'image' => 'required|max:2048','name' => 'required|max:50', 'slug' => 'required|unique:products,slug'
         ];
         if($id==""){
@@ -119,7 +119,8 @@ class ProductController extends BaseController
             'description.required' => 'Please write a short description about the product.',
             'description.max' => 'maximum 150 charactes are allowed in description',
             'image.required' => 'Image is required to save a product into the inventory',
-            'image.max' => 'Maximum allowed filesize 2 MB'
+            'image.max' => 'Maximum allowed filesize 2 MB',
+            'gst_percentage.integer' => 'Only give the integer value, Special Characteres on Alphabets not allowed'
         ];
         return Validator::make($inputs, $validator, $messages);
     }

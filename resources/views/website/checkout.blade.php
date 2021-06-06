@@ -18,20 +18,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="service-item">
-                        <div class="icon">
-                            <img src="{{ config('app.asset_url') }}/assets/images/payments/GooglePay.jpg" width="250" height="350" alt="">
-                            <h4>Pay Using Gpay</h4>
-                        </div>
+                    <div class="row text-center">
+                        <img src="{{ config('app.asset_url') }}/assets/images/payments/GooglePay.jpg" alt="">
                     </div>
+                    <div class="row text-center"><h4>Pay Using Gpay</h4></div>
                 </div>
                 <div class="col-md-6">
-                    <div class="service-item">
-                        <div class="icon">
-                            <img src="{{ config('app.asset_url') }}/assets/images/payments/PhonePay.jpg" width="250" height="350" alt="">
-                            <h4>Pay Using PhonePe</h4>
-                        </div>
+                    <div class="row  text-center">
+                        <img src="{{ config('app.asset_url') }}/assets/images/payments/PhonePay.jpg" alt="">
                     </div>
+                    <div class="row text-center"><h4>Pay Using PhonePe</h4></div>
                 </div>
             </div>
         </div>

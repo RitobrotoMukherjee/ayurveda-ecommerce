@@ -23,12 +23,13 @@ class PdfController extends BaseController
             'delivery_address_2' => $order->delivery_address_2,
             'address_last' => $order->delivery_city.', '.$order->delivery_state,
             'pin' => $order->delivery_pincode,
-            'description' => $order->orderDetail,
             'subtotal' => $order->order_final_amount,
             'tax' => $order->tax_amount,
             'shipping' => $order->shipping_charge,
+            'total_qty' => $order->total_quantity,
             'order_total' => $order->order_total_amount,
             'order_discount' => $order->order_discount,
+            'description' => $order->orderDetail,
             'logo' => $this->getBase64Image(),
         ];
         

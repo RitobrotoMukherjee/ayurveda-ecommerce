@@ -65,10 +65,10 @@
                                         </div>
                                         @if(isset($id) && $id > 0 && ! $data['product_detail']->productImages->isEmpty())
                                         	<div class="col-md-6">
-                                    			<div class="form-group">
-                                    				<label for="image-upload">--</label>
-                                                    <button id="image-upload" type="submit" class="btn btn-warning btn-block" name="update_image" value="{{$id}}">Update Image</button>
-                                                </div>
+                                                    <div class="form-group">
+                                                        <label for="image-upload">--</label>
+                                                        <button id="image-upload" type="submit" class="btn btn-warning btn-block" name="update_image" value="{{$id}}">Update Image</button>
+                                                    </div>
                                     		</div>
                                         @endif
                                     </div>
@@ -109,13 +109,17 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="product-price">Product Price</label>
                                             <input type="text" inputmode="decimal" class="form-control" id="product-price" placeholder="Product Price" name="product[price]" value="{{ $data['product_detail']->price ?? old('product.price') }}" required>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="product-discount">Product Discount</label>
                                             <input type="text" inputmode="decimal" class="form-control" id="product-discount" placeholder="Product discount" name="product[discount]" value="{{ $data['product_detail']->discount ?? old('product.discount') }}" required>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="product-gst">GST Percentage</label>
+                                            <input type="text" inputmode="decimal" class="form-control" id="product-gst" placeholder="GST Percentage" name="product[gst_percentage]" value="{{ $data['product_detail']->gst_percentage ?? old('product.gst_percentage') }}" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -210,6 +214,12 @@
                         required:true,
                         number:true,
                         min:1
+                    },
+                    
+                    "product[gst_percentage]":{
+                        required:true,
+                        number: true,
+                        max: 100
                     },
                     "product[description]":{
                         required:true

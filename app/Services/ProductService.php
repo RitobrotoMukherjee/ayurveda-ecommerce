@@ -55,7 +55,8 @@ class ProductService implements ProductServiceInterface{
             ['id' => $inputs['id']],
             [
                 'name' => $inputs['name'],'slug' => $inputs['slug'],
-                'price' => $inputs['price'], 'discount' => $inputs['discount'], 'description' => $inputs['description'],
+                'price' => $inputs['price'], 'discount' => $inputs['discount'], 
+                'description' => $inputs['description'], 'gst_percentage' => $inputs['gst_percentage'],
                 'product_category_id' => $inputs['product_category_id'], 'featured' => $inputs['featured'], 'available' => $inputs['available']
             ]
         );

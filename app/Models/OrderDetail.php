@@ -10,10 +10,11 @@ class OrderDetail extends Model
         'id',
         'order_id',
         'product_id',
-        'ordered_quantity',
-        'order_price',
-        'order_discount',
-        'order_final_price'
+        'quantity',
+        'price',
+        'discount',
+        'gst_percentage',
+        'final_price'
     ];
     
     public function order(){

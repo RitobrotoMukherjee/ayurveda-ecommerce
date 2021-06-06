@@ -19,10 +19,10 @@
         </style>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-xs-2">
-                    <img src="{{ $logo }}" width="100" height="100"/>
+                <div class="col-xs-3">
+                    <img src="{{ $logo }}" width="150" height="150"/>
                 </div>
                 <div class="col-xs-4">
                     <h4>Sold By</h4>
@@ -39,8 +39,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-6 offset-xs-3">
-                    <h4>Invoice</h4>
+                <div class="col-xs-12 text-center">
+                    <h4><u>INVOICE</u></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
                     <h6>GSTIN - {{ config('app.gst_number') }}</h6>
                     <h6>Invoice Date - {{ $invoice_date }}</h6>
                     <h6>Invoice Number - {{ $invoice_number }}</h6>
@@ -51,39 +55,47 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr class="d-flex">
-                                <th class="col-6">Product</th>
-                                <th >Quantity</th>
-                                <th >Price</th>
-                                <th >Discount</th>
-                                <th >End Price</th>
+                                <th style="width: 50%;">Product Name</th>
+                                <th style="width: 10%;text-align: center;">QTY</th>
+                                <th style="width: 10%;text-align: center;">MRP</th>
+                                <th style="width: 10%;text-align: center;">Discount</th>
+                                <th style="width: 10%;text-align: center;">GST%</th>
+                                <th style="width: 10%;text-align: center;">Total</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($description as $odrDtl)
                                 <tr class="d-flex">
-                                    <td class="col-6"><a href="{{ route('products.detail', [$odrDtl->product->slug]) }}">{{ $odrDtl->product->name }}</a></td>
-                                    <td style="text-align: center;">{{ $odrDtl->quantity }}</td>
-                                    <td style="text-align: center;">{{ $odrDtl->price }}</td>
-                                    <td style="text-align: center;">{{ $odrDtl->discount }}</td>
-                                    <td style="text-align: center;">{{ $odrDtl->final_price }}</td>
+                                    <td style="width: 50%;"><a href="{{ route('products.detail', [$odrDtl->product->slug]) }}">{{ $odrDtl->product->name }}</a></td>
+                                    <td style="width: 10%;text-align: center;">{{ $odrDtl->quantity }}</td>
+                                    <td style="width: 10%;text-align: center;">{{ number_format((float)$odrDtl->price, 2, '.','') }}</td>
+                                    <td style="width: 10%;text-align: center;">{{ number_format((float)$odrDtl->discount, 2, '.','') }}</td>
+                                    <td style="width: 10%;text-align: center;">{{ $odrDtl->gst_percentage }}</td>
+                                    <td style="width: 10%;text-align: center;">{{ number_format((float)$odrDtl->final_price, 2, '.','') }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
+                        <tfoot>
+                            <tr class="d-flex">
+                                <th style="width: 50%;">Total</th>
+                                <th style="width: 10%;text-align: center;">{{ $total_qty }}</th>
+                                <th style="width: 10%;text-align: center;">{{ number_format((float)$order_total, 2, '.','') }}</th>
+                                <th style="width: 10%;text-align: center;">{{ number_format((float)$order_discount, 2, '.','') }}</th>
+                                <th style="width: 10%;text-align: center;">--</th>
+                                <th style="width: 10%;text-align: center;">{{ number_format((float)($subtotal - $shipping) , 2, '.','') }}</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tr class="d-flex">
-                            <th style="width: 50%;text-align: center;" >GST</th>
-                            <th style="width: 50%;text-align: right;">{{ $tax }}%</th>
-                        </tr>
-                        <tr class="d-flex">
                             <th style="width: 50%;text-align: center;" >Shipping Charges</th>
-                            <th style="width: 50%;text-align: right;">{{ $shipping }}</th>
+                            <th style="width: 50%;text-align: right;">{{ number_format((float)$shipping, 2, '.','') }}</th>
                         </tr>
                         <tr class="d-flex">
-                            <th style="width: 50%;text-align: center;">Sub Total</th>
-                            <th style="width: 50%; text-align: right;">{{ $subtotal }}</th>
+                            <th style="width: 50%;text-align: center;">Total Amount</th>
+                            <th style="width: 50%; text-align: right;">{{ number_format((float)$subtotal, 2, '.','') }}</th>
                         </tr>
                     </table>
                 </div>

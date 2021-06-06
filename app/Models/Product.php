@@ -18,7 +18,8 @@ class Product extends Model
         'featured',
         'available',
         'price',
-        'discount'
+        'discount',
+        'gst_percentage'
     ];
     
     public function productImages(){

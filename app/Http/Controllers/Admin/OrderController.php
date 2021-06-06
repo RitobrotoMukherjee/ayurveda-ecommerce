@@ -36,7 +36,6 @@ class OrderController extends BaseController
             $order->order_status_id = $inputs['order_status_id'];
             $order->payment_status = $inputs['order_status_id'];
             $order->txn_id = $inputs['txn_id'];
-            $order->tax_amount = $inputs['tax_amount'];
             $order->shipping_charge = $inputs['shipping_charge'];
             if($order->isDirty('order_status_id') && $order->order_status_id == 2){
                 $order->order_final_amount = $this->calculateFinalAmount($inputs);
@@ -65,7 +64,7 @@ class OrderController extends BaseController
     protected function validateResponse($input){
         $validations = [
             "order_status_id" => 'required|integer', 'txn_id' => 'required|string|max:50',
-            "shipping_charge" => 'required|integer', 'tax_amount' => 'required|numeric|max:100'
+            "shipping_charge" => 'required|integer'
             ];
         return Validator::make($input, $validations);
     }
@@ -108,9 +107,7 @@ class OrderController extends BaseController
     }
     
     private function calculateFinalAmount($inputs) {
-        $tax = ($inputs['order_final_amount'] * $inputs['tax_amount'])/100;
-        
-        return $inputs['order_final_amount'] + $tax + $inputs['shipping_charge'];
+        return $inputs['order_final_amount'] + $inputs['shipping_charge'];
     }
     
 }

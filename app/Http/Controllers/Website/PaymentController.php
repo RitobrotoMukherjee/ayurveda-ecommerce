@@ -52,12 +52,12 @@ class PaymentController extends BaseController
     private function saveOrders($inputs){
         $orderDetailsInput = json_decode($inputs['order_details'], true);
         $amounts = $this->getAmounts($orderDetailsInput);
-        $total_quantity = $this->getQty($orderDetailsInput);
+        $total_quantity = (int)$this->getQty($orderDetailsInput);
         $orderArr = [
             'customer_id' => $inputs['customer_id'], 'order_status_id' => 1, 'customer_first_name' => $inputs['customer_first_name'],'customer_last_name' => $inputs['customer_last_name'],
             'customer_email' => $inputs['customer_email'], 'customer_mobile' => $inputs['customer_mobile'], 'delivery_address_1' => $inputs['delivery_address_1'],'delivery_address_2' => $inputs['delivery_address_2'] ?? '',
             'delivery_city' => $inputs['delivery_city'], 'delivery_state' => $inputs['delivery_state'], 'delivery_pincode' => $inputs['delivery_pincode'],
-            'payment_type' => $inputs['payment_type'], 'payment_status' => 1, 'total_quantity' => "$total_quantity",
+            'payment_type' => $inputs['payment_type'], 'payment_status' => 1, 'total_quantity' => $total_quantity,
             'order_total_amount' => $amounts['order_total_amount'], 'order_discount' => $amounts['order_discount'],'tax_amount' => $amounts['tax_amount'], 
             'order_final_amount' => $amounts['order_total_amount'] + $amounts['tax_amount'] - $amounts['order_discount']
         ];
@@ -81,7 +81,9 @@ class PaymentController extends BaseController
             $orderDtl->quantity = $dtl['quantity'];
             $orderDtl->price = $dtl['price']*$dtl['quantity'];
             $orderDtl->discount = $dtl['discount']*$dtl['quantity'];
-            $orderDtl->final_price = $orderDtl->price-$orderDtl->discount;
+            $orderDtl->gst_percentage = $dtl['gst_percentage'];
+            $tax = (($orderDtl->price-$orderDtl->discount) * $orderDtl->gst_percentage)/100;
+            $orderDtl->final_price = $orderDtl->price+ $tax -$orderDtl->discount;
             $orderDetails = $orderDtl->save();
         }
         return $orderDetails;
@@ -89,9 +91,11 @@ class PaymentController extends BaseController
     
     private function getAmounts($order_details){
         $return=['order_total_amount' => 0, 'order_discount' => 0,'tax_amount' => 0 ];
-        foreach($order_details as $v){
+        foreach($order_details as $id => $v){
             $return['order_total_amount'] += $v['price']*$v['quantity'];
             $return['order_discount'] += $v['discount']*$v['quantity'];
+            $prd_price = (($v['price']-$v['discount'])* $v['quantity']);
+            $return['tax_amount'] += ($prd_price * $v['gst_percentage'])/100;
         }
         return $return;
     }

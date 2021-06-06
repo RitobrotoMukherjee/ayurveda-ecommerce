@@ -26,7 +26,8 @@ class AddtocartController extends BaseController
                 'name' => $product->name,
                 'quantity' => 1,
                 'price' => $product->price,
-                'discount' => $product->discount
+                'discount' => $product->discount,
+                'gst_percentage' => $product->gst_percentage,
             ];
         }
         session()->put('cart', $cart);
