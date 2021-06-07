@@ -27,10 +27,10 @@ class OrderController extends BaseController
         $to = date('Y-m-d');
         $from = date('Y-m-d',strtotime("-1 days"));
         if(isset($inputs['to_date']) && $inputs['to_date'] != ""){
-            $to = $inputs['to_date'];
+            $to = date('Y-m-d', strtotime($inputs['to_date']));
         }
         if(isset($inputs['from_date']) && $inputs['from_date'] != ""){
-            $from = $inputs['from_date'];
+            $from = date('Y-m-d', strtotime($inputs['from_date']));
         }
         $collection = Order::select(['id','invoice_number','order_total_amount', 'order_discount', 'tax_amount', 'shipping_charge', 'order_final_amount', 'payment_type'])
                 ->where('payment_status', 2)->whereBetween('created_at', [$from." 00:00:00", $to." 23:59:59"])->orderBy('id', 'desc')->get();
