@@ -100,6 +100,7 @@ Route::prefix('admin')->group(function(){
         });
         Route::prefix('order')->group(function(){
             Route::get('list',[App\Http\Controllers\Admin\OrderController::class, 'orderList'])->name('order.list');
+            Route::get('gst/report',[App\Http\Controllers\Admin\OrderController::class, 'gstReport'])->name('order.report');
             Route::get('detail/{id?}',[App\Http\Controllers\Admin\OrderController::class, 'getOrderById'])->name('order.details');
             Route::post('save/{order}',[App\Http\Controllers\Admin\OrderController::class, 'updateOrder'])->name('order.update');
             Route::get('generate-pdf/{orderid}', [App\Http\Controllers\PdfController::class, 'generatePdf'])->name('admin.download.pdf');

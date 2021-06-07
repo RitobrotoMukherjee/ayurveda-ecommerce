@@ -155,12 +155,12 @@
                   <p>Orders</p>
                 </a>
               </li>
-<!--              <li class="nav-item">
-                <a href="{{ route('order.statuslist') }}" class="nav-link">
+              <li class="nav-item">
+                <a href="{{ route('order.report', ['from_date' => date('Y-m-d',strtotime("-1 days")), 'to_date' => date('Y-m-d')]) }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Order Statuses</p>
+                  <p>GST Report</p>
                 </a>
-              </li>-->
+              </li>
             </ul>
           </li>
 <!--          <li class="nav-item">
@@ -227,12 +227,15 @@
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- InputMask -->
+<script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/moment/moment.min.js"></script>
+<script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/dist/js/adminlte.js"></script>
-
 <!-- DataTables  & Plugins -->
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -246,6 +249,8 @@
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/plugins/toastr/toastr.min.js"></script>
+
+
 <!-- AdminLTE for demo purposes -->
 <script src="{{ config('app.asset_url') }}/vendor/adminlte/dist/js/demo.js"></script>
 

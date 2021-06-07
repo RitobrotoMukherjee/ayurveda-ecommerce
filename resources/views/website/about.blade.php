@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="right-image">
-                      <img class="img-thumbnail img-list-view" src="{{ config('app.asset_url') }}/assets/images/skap-team/Dr-Peddinti-Rangacharyulu.jpg"  alt="">
+                      <img class="img-thumbnail img-about-view" src="{{ config('app.asset_url') }}/assets/images/skap-team/Dr-Peddinti-Rangacharyulu.jpg"  alt="">
                       <h5>Founder of SREE KRISHN AYURVEDIC PHARMACY, Eluru.</h5>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
             <div class="row team-members">
                 <div class="col-md-6">
                     <div class="right-image">
-                      <img class="img-thumbnail img-list-view" src="{{ config('app.asset_url') }}/assets/images/skap-team/Dr-Peddinti-Venkatacharyulu.jpg"  alt="">
+                      <img class="img-thumbnail img-about-view" src="{{ config('app.asset_url') }}/assets/images/skap-team/Dr-Peddinti-Venkatacharyulu.jpg"  alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -45,13 +45,13 @@
             <div class="row team-members">
                 <div class="col-md-6">
                     <div class="right-image">
-                      <img class="img-thumbnail img-list-view" src="{{ config('app.asset_url') }}/assets/images/skap-team/Dr-Peddinti-Rangacharyulu-BAMS.jpg"  alt="">
+                      <img class="img-thumbnail img-about-view" src="{{ config('app.asset_url') }}/assets/images/skap-team/Dr-Peddinti-Rangacharyulu-BAMS.jpg"  alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="left-content">
                         <h4>Dr. Peddinti Rangacharyulu  B.A.M.S</h4>
-                        <h4>AYURVEDIC OFFICERS ASSOCIATION, Govt. A.P.</h4>
+                        <h4>AYURVEDIC MEDICAL OFFICERS ASSOCIATION, Govt. A.P.</h4>
                         <h5>Jananm : in 1935</h5>
                         <h5>Maranam: 2019</h5>
                         <p>He Completed B.A.M.S.  and joined in Govt. Service at Ayurvedic Hospital, Chirala.  Continuously guiding his son and present proprietor of Sree Krishna Ayurvedic Pharmacy Sri Peddinti Venugopal in preparation of Medicines for various diseases also made his own presense for attending serious cases at eluru whenever required.  He elected as Vice President for State Municipal AYURVEDIC MEDICAL OFFICERS ASSOCIATION and served for many years for the welfare of the Ayurvedic Doctors spreaded all over in India.</p>

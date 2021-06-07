@@ -10,7 +10,7 @@
   <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}" >
     <meta name="description" content="Indian Ayurvedic Pharmacy">
     <meta name="author" content="Ritobroto Mukherjee">
@@ -20,7 +20,7 @@
 
     <title>Sree Krishna Ayurvedic</title>
 
-    <link href="{{ config('app.asset_url') }}/css/app-v1.0.11.css" rel="stylesheet">
+    <link href="{{ config('app.asset_url') }}/css/app-v1.0.12.css" rel="stylesheet">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/fontawesome.css">
     <link rel="stylesheet" href="{{ config('app.asset_url') }}/assets/css/style.v1.0.01.css">

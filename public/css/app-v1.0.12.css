@@ -10147,6 +10147,10 @@ Custom CSS
     height: 255px;
     object-fit: cover;
 }
+.img-about-view{
+    width: 370px !important;
+    object-fit: cover;
+}
 .page-heading:before{
     background-color: transparent !important;
 }

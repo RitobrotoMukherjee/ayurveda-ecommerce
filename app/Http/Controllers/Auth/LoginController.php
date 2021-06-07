@@ -37,7 +37,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this>$this->redirectTo=route('product.list');
+        $this->redirectTo=route('product.list');
         $this->middleware('guest')->except('logout');
     }
     

@@ -22,6 +22,29 @@ class OrderController extends BaseController
         return view('admin.order.list', ['data' => $this->data]);
     }
     
+    public function gstReport(Request $request){
+        $inputs = $request->all();
+        $to = date('Y-m-d');
+        $from = date('Y-m-d',strtotime("-1 days"));
+        if(isset($inputs['to_date']) && $inputs['to_date'] != ""){
+            $to = $inputs['to_date'];
+        }
+        if(isset($inputs['from_date']) && $inputs['from_date'] != ""){
+            $from = $inputs['from_date'];
+        }
+        $collection = Order::select(['id','invoice_number','order_total_amount', 'order_discount', 'tax_amount', 'shipping_charge', 'order_final_amount', 'payment_type'])
+                ->where('payment_status', 2)->whereBetween('created_at', [$from." 00:00:00", $to." 23:59:59"])->orderBy('id', 'desc')->get();
+        
+        $this->data['orders'] = $collection;
+        
+        $this->data['count'] = $collection->count();
+        $this->data['total_tax'] = $collection->sum('tax_amount');
+        $this->data['total_shipping'] = $collection->sum('shipping_charge');
+        $this->data['total_invoice_amount'] = $collection->sum('order_final_amount');
+        
+        return view('admin.order.gst_report', ['data' => $this->data]);
+    }
+    
     public function getOrderById($id=""){
         if(isset($id) && $id > 0){
             $this->data['order_detail'] = Order::with(['orderStatus','customer', 'orderDetail.product'])->where('id', $id)->first();
