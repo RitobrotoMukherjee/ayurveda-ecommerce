@@ -156,7 +156,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('order.report', ['from_date' => date('Y-m-d',strtotime("-1 days")), 'to_date' => date('Y-m-d')]) }}" class="nav-link">
+                <a href="{{ route('order.report', ['from_date' => date('Y-m-d',strtotime("-1 years")), 'to_date' => date('Y-m-d')]) }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>GST Report</p>
                 </a>
