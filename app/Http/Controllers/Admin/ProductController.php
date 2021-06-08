@@ -41,7 +41,9 @@ class ProductController extends BaseController
     public function upsertProduct(Request $request){
         $inputs = $request->input('product');
         $imageUp = $request->input('update_image');
-        $inputs['slug'] = Str::slug($inputs['name']);
+        if($inputs['id'] == ""){
+            $inputs['slug'] = Str::slug($inputs['name']);
+        }
         if($request->hasFile('product.image')){ 
             $image = $request->file('product.image');
             $inputs['image'] = $image;
@@ -99,10 +101,11 @@ class ProductController extends BaseController
     
     private function productUpsertValidate($inputs, $id=""){
         $validator = ['product_category_id' => 'required|integer','available' => 'required|integer','featured' => 'required|integer',
-            'price' => 'required|numeric','discount' => 'required|numeric','gst_percentage' => 'required|integer','description' => 'required|max:150',
-            'image' => 'required|max:2048','name' => 'required|max:50', 'slug' => 'required|unique:products,slug'
+            'price' => 'required|numeric','discount' => 'required|numeric','gst_percentage' => 'required|integer','description' => 'required|max:500',
+            'image' => 'required|max:2048','name' => 'required|max:50'
         ];
         if($id==""){
+            $validator['slug'] = 'required|unique:products,slug';
             $validator['name'] = 'required|max:50|unique:products,name';
             $messages['name.unique'] = 'Product name must be unique';
         }
