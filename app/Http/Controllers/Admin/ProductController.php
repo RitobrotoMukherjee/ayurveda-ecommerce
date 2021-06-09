@@ -101,10 +101,11 @@ class ProductController extends BaseController
     
     private function productUpsertValidate($inputs, $id=""){
         $validator = ['product_category_id' => 'required|integer','available' => 'required|integer','featured' => 'required|integer',
-            'price' => 'required|numeric','discount' => 'required|numeric','gst_percentage' => 'required|integer','description' => 'required|max:500',
-            'image' => 'required|max:2048','name' => 'required|max:50'
+            'price' => 'required|numeric','discount' => 'required|numeric','gst_percentage' => 'required|integer','description' => 'required|max:250',
+            'name' => 'required|max:50'
         ];
         if($id==""){
+            $validator['image'] = 'required|max:2048';
             $validator['slug'] = 'required|unique:products,slug';
             $validator['name'] = 'required|max:50|unique:products,name';
             $messages['name.unique'] = 'Product name must be unique';
@@ -120,9 +121,7 @@ class ProductController extends BaseController
             'price.numeric' => 'Please provide a valid price',
             'discount.numeric' => 'Please provide a valid discount',
             'description.required' => 'Please write a short description about the product.',
-            'description.max' => 'maximum 150 charactes are allowed in description',
-            'image.required' => 'Image is required to save a product into the inventory',
-            'image.max' => 'Maximum allowed filesize 2 MB',
+            'description.max' => 'maximum 250 charactes are allowed in description',
             'gst_percentage.integer' => 'Only give the integer value, Special Characteres on Alphabets not allowed'
         ];
         return Validator::make($inputs, $validator, $messages);

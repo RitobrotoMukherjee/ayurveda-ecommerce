@@ -10145,7 +10145,7 @@ Custom CSS
 .img-list-view{
     width: 370px !important;
     height: 255px;
-    object-fit: cover;
+    /*object-fit: cover;*/
 }
 .img-about-view{
     width: 370px !important;

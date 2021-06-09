@@ -99,9 +99,9 @@
                             <div class="product-item">
                                 <a href="{{ route('products.detail', [$product->slug]) }}">
                                     @if(isset($product->productImages[1]))
-                                        <img src="{{ config('app.asset_url') }}/assets/images/products/{{ $product->id }}/{{ $product->productImages[1]->image_path }}"" alt="">
+                                        <img src="{{ config('app.asset_url') }}/assets/images/products/{{ $product->id }}/{{ $product->productImages[1]->image_path }}"" alt="" class="img-thumbnail img-list-view">
                                     @else
-                                        <img title="No Image Found" src="{{ config('app.asset_url') }}/assets/images/product-1-370x270.jpg " alt="no image" > 
+                                        <img title="No Image Found" src="{{ config('app.asset_url') }}/assets/images/product-1-370x270.jpg " alt="no image" class="img-thumbnail img-list-view"> 
                                     @endif
                                     @if($product->available == 0)
                                         <div class="sold-overlay">

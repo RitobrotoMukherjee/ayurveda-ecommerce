@@ -60,7 +60,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="product-image">Upload Product Image</label>
-                                                <input type="file" class="form-control" id="product-image" name="product[image]"  required>
+                                                <input type="file" class="form-control" id="product-image" name="product[image]"  @php echo (isset($id) && $id > 0 && ! $data['product_detail']->productImages->isEmpty()) ? '' : 'required' @endphp>
                                             </div>
                                         </div>
                                         @if(isset($id) && $id > 0 && ! $data['product_detail']->productImages->isEmpty())
