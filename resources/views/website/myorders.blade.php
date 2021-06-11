@@ -20,7 +20,8 @@
                             <tr>
                                 <th width="30%">Invoice Number</th>
                                 <th width="15%">Payment Status</th>
-                                <th width="15%">Total Amount</th>
+                                <th width="10%">Shipping Charges</th>
+                                <th width="10%">Total Amount</th>
                                 <th width="20%">Order Date</th>
                                 <th width="15%">action</th>
                             </tr>
@@ -34,14 +35,21 @@
                                             <td>{{ $status->status }}</td>
                                         @endif
                                     @endforeach
+                                    <td>&#8377;{{ $orders->shipping_charge }}</td>
                                     <td>&#8377;{{ $orders->order_final_amount }}</td>
                                     <td>{{ date('d-m-Y H:i', strtotime($orders->created_at)) }}</td>
-                                    @if($orders->payment_status == 2)
+                                    @if($orders->payment_status == 3)
                                         <td>
                                             <a href="{{ route('customer.invoice', [$orders->id]) }}" class="btn btn-success btn-sm">Download Invoice</a>
                                         </td>
                                     @endif
-                                    @if($orders->payment_status != 2)
+                                    
+                                    @if($orders->payment_status == 2)
+                                        <td>
+                                            <a href="{{ route('pay') }}" class="btn btn-success btn-sm">Pay</a>
+                                        </td>
+                                    @endif
+                                    @if($orders->payment_status != 3 && $orders->payment_status != 2)
                                         <td>
                                             Confirm Payment to Download Invoice
                                         </td>

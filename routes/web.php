@@ -57,7 +57,7 @@ Route::group(['middleware' => 'customer.auth'], function(){
     Route::get('customer-invoice/{orderid}', [App\Http\Controllers\PdfController::class, 'generatePdf'])->name('customer.invoice');
     
     Route::post('check-out', [\App\Http\Controllers\Website\PaymentController::class, 'checkout'])->name('payment.checkout');
-    Route::post('pay', [\App\Http\Controllers\Website\PaymentController::class, 'pay'])->name('pay');
+    Route::get('pay', [\App\Http\Controllers\Website\PaymentController::class, 'pay'])->name('pay');
     
     Route::get('/email/verify', function () {
         return view('website.verify');

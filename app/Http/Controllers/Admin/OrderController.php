@@ -65,7 +65,7 @@ class OrderController extends BaseController
                 $prodUpdate = $this->updateProduct($order);
                 if($prodUpdate){ $order->save(); }
                 if(!$prodUpdate){
-                    return redirect()->route('order.details', [$order->id])->with('error','Cannot mark as paid '.$order->invoice_number. ', Product Not Available in inventory. Please add product to mark as paid');
+                    return redirect()->route('order.details', [$order->id])->with('error','Cannot raise invoice '.$order->invoice_number. ', Product Not Available in inventory. Please add product to mark as paid');
                 }
             }
             if($order->order_status_id != 2){

@@ -35,8 +35,8 @@ class PaymentController extends BaseController
         return redirect()->back()->with('error', 'Order not saved, Contact support team');
     }
     
-    public function pay(Request $request){
-        return $request->all();
+    public function pay(){
+        return view('website.pay', ['data' => $this->data]);
     }
     
     protected function validationResponse($input){

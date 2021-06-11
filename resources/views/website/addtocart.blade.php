@@ -67,8 +67,8 @@
                                 <td>
                                     <a href="{{ url()->previous() }}" class="btn btn-danger">Continue Shopping</a>
                                 </td>
-                                <td colspan="3"></td>
-                                <td><strong>Total &#8377;{{ $total }}</strong></td>
+                                <td colspan="2"></td>
+                                <td colspan="3"><strong>Total &#8377;{{ $total }}(Shipping Excluded)</strong></td>
                             </tr>
                         </tfoot>
                     </table>

@@ -58,6 +58,8 @@ return [
     
     'upi' => 'sreekrishnaayurvedicpharmacy@okaxis',
     
+    'contact' => '+919989512445',
+    
     'gst_number' => '37BEZPP6752E1ZQ',
 
     /*

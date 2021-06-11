@@ -6,8 +6,7 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="section-heading">
-                        <h2>Pay Using UPI</h2>
-                        <h4>{{ config('app.upi') }}</h4>
+                        <h2>Your Order Has Been Initiated</h2>
                     </div>
                 </div>
             </div>
@@ -17,17 +16,12 @@
     <div class="happy-clients">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="row text-center">
-                        <img src="{{ config('app.asset_url') }}/assets/images/payments/GooglePay.jpg" alt="">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <div class="row ">
+                        <h5>Our Team Is Calculating the Shipping Charges.</h5>
+                        <h6>You will get update via mail soon.</h6><br>
+                        <h5>In case of any query contact us <a href="tel:{{ config('app.contact') }}" target="_top">{{ config('app.contact') }}</a></h5>
                     </div>
-                    <div class="row text-center"><h4>Pay Using Gpay</h4></div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row  text-center">
-                        <img src="{{ config('app.asset_url') }}/assets/images/payments/PhonePay.jpg" alt="">
-                    </div>
-                    <div class="row text-center"><h4>Pay Using PhonePe</h4></div>
                 </div>
             </div>
         </div>

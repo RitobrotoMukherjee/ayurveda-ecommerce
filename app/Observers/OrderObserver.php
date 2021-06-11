@@ -5,6 +5,8 @@ namespace App\Observers;
 use App\Models\Order;
 use App\Mail\OrderInitiatedEmail;
 use App\Mail\OrderAdminInform;
+use App\Mail\OrderInvoiceRaisedEmail;
+use App\Mail\OrderInvoicePaidEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 
@@ -38,7 +40,6 @@ class OrderObserver
      */
     public function updating(Order $order)
     {
-//        echo 'updating';die;
         
     }
     /**
@@ -49,8 +50,14 @@ class OrderObserver
      */
     public function updated(Order $order)
     {
-//        echo 'updated';die;
-//        $order->wasChanged();
+        if($order->wasChanged('order_status_id') && $order->order_status_id == 2){
+            Mail::to($order->customer_email)->queue(new OrderInvoiceRaisedEmail($order));
+        }
+        
+        if($order->wasChanged('order_status_id') && $order->order_status_id == 3){
+            Mail::to($order->customer_email)->queue(new OrderInvoicePaidEmail($order));
+        }
+        
     }
 
     /**

@@ -2,12 +2,13 @@
 Invoice Number For Further Contact - {{ $mail->invoice_number }}
 
 Your Preferred payment method is {{ strtoupper($mail->payment_type) }}.<br>
-Your Order Has Been Initiated. We are calculating Shipping charges. <br>
-Order Amount without shipping charges &#8377; {{ $mail->order_final_amount }}.
+You have paid total &#8377; {{ $mail->order_final_amount }} .<br>
 
 @component('mail::panel')
-SKAP-Contact - <a href="tel:{{ config('app.contact') }}" target="_top">{{ config('app.contact') }}</a>
+You can download invoice in MyOrder section of your account.
 @endcomponent
+
+SKAP-Contact - <a href="tel:{{ config('app.contact') }}" target="_top">{{ config('app.contact') }}</a><br>
 
 Thanks,<br>
 {{ config('app.name') }}

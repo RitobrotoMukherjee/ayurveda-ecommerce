@@ -16,7 +16,7 @@
                    <h1>Order Detail</h1>
                 </div>
           
-              	@if(isset($data['order_detail']->order_status_id) && ($data['order_detail']->order_status_id == 2))
+              	@if(isset($data['order_detail']->order_status_id) && ($data['order_detail']->order_status_id == 3))
                     <div class="col-sm-5 offset-sm-1">
                         <a class="btn btn-success" href='{{ route('admin.download.pdf', [$id]) }}'>Download Invoice</a>
                     </div>
@@ -66,7 +66,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if($data['order_detail']->order_status_id != 2)
+                                @if($data['order_detail']->order_status_id != 3)
                                     <div class="row">
                                         <div class="col-md-6 offset-md-3 text-center">
                                             @if($id == '')

@@ -19,6 +19,9 @@ class OrderStatusSeeder extends Seeder
                 'status' => 'Initiated'
             ],
             [
+                'status' => 'Invoice Raised'
+            ],
+            [
                 'status' => 'Paid'
             ],
             [
