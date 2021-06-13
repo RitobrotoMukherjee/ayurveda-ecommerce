@@ -49,6 +49,11 @@
                                         <select class="form-control" id="orderStatus" name="order[order_status_id]" required>
                                             <option value=''>Please select from list</option>
                                             @foreach($data['order_status'] as $status)
+                                                @if(isset($data['order_detail']->order_status_id) && ($data['order_detail']->order_status_id == 1) && ($status->id == 3))
+                                                    @php
+                                                        continue;
+                                                    @endphp
+                                                @endif
                                                 <option value='{{ $status->id }}' {{ (isset($data['order_detail']->order_status_id) && ($data['order_detail']->order_status_id == $status->id)) ? 'selected' : old('order.order_status_id')}}>{{ $status->status }}</option>
                                             @endforeach
                                         </select>
