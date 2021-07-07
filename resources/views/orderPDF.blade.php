@@ -99,8 +99,13 @@
                         </tr>
                     </table>
                 </div>
-                <div class="col-xs-9 text-left">
-                    <h5>THE BEST HOUSE FOR GENUINE AYURVEDIC MEDICINE</h5>
+                <div class="row">
+                    <div class="col-xs-8 text-left">
+                        <h5>THE BEST HOUSE FOR GENUINE AYURVEDIC MEDICINE</h5>
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="{{ $fssai }}" width="160" height="80"/>
+                    </div>
                 </div>
             </div>
         </div>

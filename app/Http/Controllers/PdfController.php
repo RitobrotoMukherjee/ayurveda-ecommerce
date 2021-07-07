@@ -31,15 +31,21 @@ class PdfController extends BaseController
             'order_discount' => $order->order_discount,
             'description' => $order->orderDetail,
             'logo' => $this->getBase64Image(),
+            'fssai' => $this->getBase64ImageFssai(),
         ];
         
         $pdf = PDF::loadView('orderPDF', $data);
-    
+//        return $pdf->stream($order->invoice_number.'.pdf', ["Attachment" => false]);
         return $pdf->download($order->invoice_number.'.pdf');
     }
     
     private function getBase64Image(){
         $path = config('app.asset_url').'/assets/images/SKAP-logo.jpg';
+        $data = file_get_contents($path);
+        return 'data:image/jpg;base64,' . base64_encode($data);
+    }
+    private function getBase64ImageFssai(){
+        $path = config('app.asset_url').'/assets/images/fssai.jpg';
         $data = file_get_contents($path);
         return 'data:image/jpg;base64,' . base64_encode($data);
     }
